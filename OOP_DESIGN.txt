@@ -1,0 +1,97 @@
+# Banking System - OOP Refactored Design
+
+## Architecture Overview
+The banking system has been refactored to use advanced OOP concepts with all files under 50 lines.
+
+## Files & Line Counts
+- main.cpp: 35 lines
+- client.cpp: 48 lines
+- banker.cpp: 38 lines
+- admin.cpp: 27 lines
+- signin.cpp: 34 lines
+- user.h: 19 lines (header)
+- client.h: 14 lines (header)
+- banker.h: 14 lines (header)
+- admin.h: 15 lines (header)
+- signin.h: 5 lines (header)
+
+## OOP Concepts Implemented
+
+### 1. Abstract Class
+- **user.h**: Defines abstract base class `User` with pure virtual function `display()`
+- Cannot instantiate User directly; must use derived classes
+
+### 2. Inheritance
+- `Client`, `Banker`, `Admin` classes inherit from `User`
+- Each derived class implements `display()` with its own message
+- Protected/public members inherited by all subclasses
+
+### 3. Virtual Functions
+- `display()` is virtual in `User` base class
+- Each derived class overrides `display()` with override keyword
+- Polymorphic behavior through base class pointers
+
+### 4. Pure Virtual Functions
+- `display() = 0` in User makes it pure virtual
+- Forces all derived classes to implement it
+- Defining the interface for all user types
+
+### 5. Function Overloading
+- Multiple functions with same name but different signatures:
+  - `Client::withdraw(double)`, `deposit(double)`, `transfer(string, double)`
+  - `Banker::addAccount(string)`, `removeAccount(string)`
+  - `Admin::addBanker(string, string)`, `removeBanker(string)`
+
+### 6. Polymorphism
+- In main.cpp: Uses `dynamic_cast<>()` to determine user type
+- Calls appropriate menu based on User subclass
+- Virtual display() function called automatically for correct type
+
+### 7. Lambda Functions & Functional Programming
+- client.cpp uses lambda expressions with capture: `[a](string l) { ... }`
+- Function objects passed to template function `modDB()`
+- Demonstrates functional programming concepts
+
+### 8. Templates
+- `modDB()` template function accepts `function<string(string)> f` parameter
+- Generalizes database update operations
+- Reduces code duplication for withdraw/deposit operations
+
+### 9. Encryption (This Pointer Usage)
+- Each User has `key` member for encryption
+- `encrypt()` and `decrypt()` methods use `this` implicitly
+- Demonstrates member access and this pointer context
+
+### 10. File I/O with Abstraction
+- Database operations abstracted in member functions
+- Each class manages its own file operations
+- Encapsulation of data access logic
+
+## Key Design Features
+
+### Simplified Logic
+- No use of BankingSystem singleton class
+- Direct User* pointer-based architecture
+- Clean separation of concerns
+
+### Memory Management
+- Polymorphic pointers created in `login()` as base class User*
+- Proper deletion in main() with `delete user`
+- Demonstrates heap allocation and deallocation
+
+### Code Reusability
+- Lambda functions reduce repeated code
+- Template function consolidates database operations
+- Virtual functions provide extensibility
+
+## Compilation & Testing
+```bash
+g++ main.cpp signin.cpp admin.cpp banker.cpp client.cpp -o main.exe
+./main.exe
+```
+
+Login with:
+- Username: admin
+- Password: admin123
+
+All code follows the SOLID principles and maintains modularity despite being under 50 lines per file.

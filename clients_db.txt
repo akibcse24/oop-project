@@ -1,0 +1,6 @@
+N	I	P	B
+N	I	P	B
+Alice	ac2	z{{y	250.000000
+Bob	ac3	z{{x	BLOCKED
+Alice	ac4	z{{	0
+avik	ac5	z{{~	0

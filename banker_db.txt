@@ -1,0 +1,3 @@
+N	I	P	S
+BankerBob	b2	z{{z	50000
+akib	b3	z{{y	50000
