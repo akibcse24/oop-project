@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1775843000 source:c:\users\qbits\onedrive\desktop\oop project\banking system\main.cpp
+1775881376 source:c:\users\qbits\onedrive\desktop\oop project\banking system\main.cpp
 	<windows.h>
 	<iostream>
 	"signin.h"
@@ -7,7 +7,7 @@
 1775836005 c:\users\qbits\onedrive\desktop\oop project\banking system\signin.h
 	"user.h"
 
-1775842414 c:\users\qbits\onedrive\desktop\oop project\banking system\admin.h
+1775879914 c:\users\qbits\onedrive\desktop\oop project\banking system\admin.h
 	"user.h"
 	<iostream>
 
@@ -19,15 +19,16 @@
 	"user.h"
 	<iostream>
 
-1775841993 source:c:\users\qbits\onedrive\desktop\oop project\banking system\banker.cpp
+1775881281 source:c:\users\qbits\onedrive\desktop\oop project\banking system\banker.cpp
 	"banker.h"
 	<fstream>
+	<iostream>
 
-1775838413 c:\users\qbits\onedrive\desktop\oop project\banking system\user.h
+1775881143 c:\users\qbits\onedrive\desktop\oop project\banking system\user.h
 	<string>
 	<fstream>
 
-1775841940 source:c:\users\qbits\onedrive\desktop\oop project\banking system\client.cpp
+1775879869 source:c:\users\qbits\onedrive\desktop\oop project\banking system\client.cpp
 	"client.h"
 	<fstream>
 
@@ -39,7 +40,7 @@
 	<fstream>
 	<iostream>
 
-1775843186 source:c:\users\qbits\onedrive\desktop\oop project\banking system\admin.cpp
+1775881604 source:c:\users\qbits\onedrive\desktop\oop project\banking system\admin.cpp
 	"admin.h"
 	<fstream>
 	<iostream>

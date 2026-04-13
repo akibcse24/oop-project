@@ -1,12 +1,17 @@
 #include "banker.h"
 #include <fstream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 void Banker::addAccount(string cn) {
     int id=1; ifstream f("clients_db.txt"); string line; bool skip=false;
     while(getline(f,line))
-        if(skip) { size_t t=line.find('\t')+1; string u=line.substr(t,line.find('\t',t)-t); if(u.length()>2) id=max(id,stoi(u.substr(2))); } else skip=true;
-    f.close(); ofstream of("clients_db.txt",ios::app);
-    of<<cn<<"\tac"<<id+1<<"\t"<<encrypt(to_string(1000+(id+1)%9000))<<"\t0\n"; of.close();
+        if(skip) { size_t t=line.find('\t')+1; string u=line.substr(t,line.find('\t',t)-t); if(u.length()>2 && u.substr(0,2)=="ac") id=max(id,stoi(u.substr(2))); } else skip=true;
+    f.close(); int p=1000+(rand()%9000), newId=id+1;
+    string idStr="ac"+string(5-to_string(newId).length(),'0')+to_string(newId);
+    ofstream of("clients_db.txt",ios::app);
+    of<<cn<<"\t"<<idStr<<"\t"<<encrypt(to_string(p))<<"\t0\n"; of.close();
+    cout<<"\nClient Created:\nName: "<<cn<<"\nID: "<<idStr<<"\nPassword: "<<p<<"\n";
 }
 void Banker::removeAccount(string uid) {
     ifstream f("clients_db.txt"); string line, res=""; bool skip=false;

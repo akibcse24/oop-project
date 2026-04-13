@@ -17,6 +17,15 @@ public:
     friend void updateBalance(User* u, double amt, bool add);
     friend bool findUser(User* u, string db);
     friend void updateDB(User* u, const string& file, const string& data);
+protected:
+    // Helper to extract numeric part from ID strings
+    static int extractIdNumber(const string& id, const string& prefix);
+    
+    // Helper to generate formatted ID with leading zeros
+    static string generateFormattedId(int number, const string& prefix, int totalLength);
+    
+    // Helper to generate random password
+    static int generatePassword();
 };
 
 #endif

@@ -40,6 +40,9 @@ void Client::transfer(string to, double a) {
     f.close(); ofstream("clients_db.txt") << "N\tI\tP\tB\n" << res;
 }
 void Client::menu() {
+    ifstream f("banner.txt");
+    for (string s; getline(f, s); ) cout << s << '\n';
+    f.close();
     for(int op;cout<<"\n1.View \n2.Withdraw \n3.Deposit \n4.Transfer \n5.Exit\n> ",cin>>op,op!=5;)
         if(op==1) viewAccount(); else if(op==2) { double x; cin>>x, withdraw(x), cout<<"OK\n"; }
         else if(op==3) { double x; cin>>x, deposit(x), cout<<"OK\n"; }

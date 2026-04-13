@@ -2,10 +2,13 @@
 #include <windows.h>
 #endif
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include "signin.h"
 using namespace std;
 
 int main() {
+    srand(time(0));
     #ifdef _WIN32
     SetConsoleOutputCP(CP_UTF8);
 #endif
